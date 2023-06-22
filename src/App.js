@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import MyApp from './MyApp'
+import { useSelector } from 'react-redux'
+// import { selectCount} from './states/reducers/index'
 
 function App() {
+  // const count = useSelector(selectCount);
+  const curState = useSelector((state) => state.number);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div style={{width:"100%", display:"flex", alignItems:"center", flexDirection:"column"}}>
+        <h1>React Redux</h1>
+        <span className="value">{curState}</span>
+        <div>
+          <MyApp/>
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App
